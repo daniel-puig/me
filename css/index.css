@@ -1,0 +1,193 @@
+body {
+    width: 100%;
+    padding-top: 10px;
+    background-image: url('../resources/paper.jpg');
+    background-size: 100%;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+p {
+    white-space: pre-line;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    /* list-style-image: url("abc.jpeg"); */
+}
+
+li {
+    list-style-image: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
+th, td {
+    padding: 5px;
+    white-space: nowrap;
+}
+
+h1 {
+    color: #ed3647;
+}
+
+h2 {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.logo-img {
+    width: 32px;
+    height: 32px;
+}
+
+.master {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin: 12px;
+}
+
+.header {
+    padding-left: 10px;
+    padding-right: 10px;
+    align-self: center;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 25px;
+}
+
+.navpole {
+    margin-top: 1px;
+    opacity: 0%;
+    transition: opacity 0.4s ease;
+    background-color: black;
+    width: 4px;
+    height: 20px;
+}
+
+.navitem {
+    display: flex;
+    flex-direction: row;
+    margin: 12px;
+    padding: 12px;
+    gap: 4px;
+    transition: background-color 0.4s ease;
+    align-self: center;
+}
+
+.navitem:hover {
+    ;
+    /* background-color: #a1e8c5; */ /* Turquoise */
+}
+
+.navitem:hover > .navpole {
+    opacity: 100%;
+}
+
+.navitem .droplabel {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.5s ease;
+}
+
+.navitem:hover .droplabel {
+    color: #ed3647 !important;
+}
+
+.content {
+    width: 80%;
+}
+
+.footer {
+    margin: 10px;
+    margin-top: 50px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    text-align: center;
+}
+
+.flink {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.geo-label {
+    text-decoration: underline;
+    color: #467886;
+}
+
+.iaq-header {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin: 10px;
+}
+
+.iaq-left {
+    align-items: left;
+    justify-content: left;
+}
+
+.iaq-right {
+    align-items: right;
+    justify-content: right;
+}
+
+.iaq-desc {
+    align-self: center;
+    width: 350px;
+    margin: 0px 40px 0px 40px;
+}
+
+.desc-right {
+    text-align: right;
+}
+
+.desc-left {
+    text-align: left;
+}
+
+.splitter {
+    margin-top: 40px;
+    margin-bottom: -10px;
+    height: 3px;
+    background-color: black;
+    width: 95%;
+    align-self: center;
+}
+
+.dinkus {
+    font-size: 1.5em;
+    margin-left: 48%;
+}
+
+.postprint {
+    color: gray;
+}
+
+#email-button {
+    border-radius: 0px;
+}
+
