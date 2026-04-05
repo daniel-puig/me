@@ -1,9 +1,12 @@
+:root {
+    --red: #ed3647;
+}
+
 body {
+    font-family: JetBrains Mono, Consolas, Arial;
     width: 100%;
     padding-top: 10px;
-    background-image: url('../resources/paper.jpg');
-    background-size: 100%;
-    background-attachment: fixed;
+    transition: background-color 0.5s ease;
     overflow-x: hidden;
 }
 
@@ -18,7 +21,6 @@ a {
 
 ul {
     list-style-type: none;
-    /* list-style-image: url("abc.jpeg"); */
 }
 
 li {
@@ -29,12 +31,12 @@ li {
 }
 
 th, td {
-    padding: 5px;
+    padding: 5px 20px 5px 20px;
     white-space: nowrap;
 }
 
 h1 {
-    color: #ed3647;
+    color: var(--red);
 }
 
 h2 {
@@ -109,7 +111,7 @@ h2 {
 }
 
 .navitem:hover .droplabel {
-    color: #ed3647 !important;
+    color: var(--red) !important;
 }
 
 .content {
@@ -157,7 +159,7 @@ h2 {
 
 .iaq-desc {
     align-self: center;
-    width: 350px;
+    width: 470px;
     margin: 0px 40px 0px 40px;
 }
 
@@ -185,9 +187,25 @@ h2 {
 
 .postprint {
     color: gray;
+    position: relative;
+    bottom: 10px;
 }
 
 #email-button {
+    user-select: text;
+    width: max-content;
+    font-family: inherit;
     border-radius: 0px;
+    border: 1px solid transparent;
+    color: #fcbc98;         /* Hard coded, sadly */
+    background-color: black;
+    padding: 10px;
+    transition: color 0.5s ease, background-color 0.5s ease, border 0.5s ease;
+}
+
+#email-button:hover {
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
 }
 

@@ -1,15 +1,22 @@
+const palette = [
+    "#f1e1c2",
+    "#f3dbbb",
+    "#f5d5b4",
+    "#f7cfad",
+    "#f8c8a6",
+    "#fac29f",
+    "#fcbc98"
+]
+
 // ----- Functions -----
 
-function toggle_page(index, human) {
+function toggle_page(index) {
+    index = Math.min(7, index);
     urlParams.set('page', index);
     const newSearch = '?' + urlParams.toString();
     window.history.pushState({}, '', newSearch);
 
-    if (human) {
-        let path = '../resources/audio/' + (Math.random() < 0.5 ? 'paper1.mp3' : 'paper2.mp3')
-        audio.children[0].src = path;
-        audio.play();
-    }
+    document.body.style.backgroundColor = palette[index - 1];
 
     Array.from(document.getElementsByClassName("content")).forEach((e) => {
         if (e.className.includes("page-"+index)) {
@@ -23,7 +30,7 @@ function toggle_page(index, human) {
         var navbar_e = document.getElementById(i.toString());
 
         if (i == index){
-            navbar_e.style.color = "#ed3647"; // Pink
+            navbar_e.style.color = "var(--red)"; // Pink
         } else {
             navbar_e.style.color = "#000000";
         }
@@ -53,6 +60,7 @@ function h2_dropdowns() {
             }
         })
 
+        // Hide all ul
         e.click();
     });
 }
@@ -64,6 +72,7 @@ Array.from(document.getElementsByTagName("li")).forEach((e) => {
     if (e.parentNode.parentNode.className.includes("page-4")) return;
     let first = e.children[0];
     if (!first) return;
+
     if (first.nodeName === "A") {
         first.style.position = "relative";
         first.style.bottom = "10px";
@@ -79,7 +88,7 @@ Array.from(document.getElementsByTagName("li")).forEach((e) => {
 Array.from(document.getElementsByClassName("droplabel")).forEach((e) => {
     e.addEventListener("click", (event) => {
         event.preventDefault();
-        toggle_page(e.id, true);
+        toggle_page(e.id);
     })
 });
 
@@ -92,9 +101,6 @@ Array.from(document.getElementsByClassName("dinkus")).forEach((e) => {
 let urlParams = new URLSearchParams(window.location.search);
 let page_idx = urlParams.get('page') || 1; // Default to page 1
 
-var audio = document.getElementById("audio");
-audio.volume = 0.2;
-
-toggle_page(page_idx, false);
+toggle_page(page_idx);
 h2_dropdowns();
 
