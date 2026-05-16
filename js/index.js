@@ -1,17 +1,21 @@
 const palette = [
-    "#f1e1c2",
+    "#f1e1c2", // lighter
     "#f3dbbb",
     "#f5d5b4",
     "#f7cfad",
     "#f8c8a6",
     "#fac29f",
-    "#fcbc98"
+    "#fcbc98", // darker
 ]
 
 // ----- Functions -----
 
 function toggle_page(index) {
-    index = Math.min(7, index);
+    if (index >= 7) {
+        index = 7;
+        fetch_quote();
+    }
+
     urlParams.set('page', index);
     const newSearch = '?' + urlParams.toString();
     window.history.pushState({}, '', newSearch);
@@ -65,6 +69,28 @@ function h2_dropdowns() {
     });
 }
 
+function sample(array) {
+    // Returns a random item of that array
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+function fetch_quote() {
+    // Source - https://stackoverflow.com/a/14446538
+    // Posted by Majid Laissi, modified by community. See post 'Timeline' for change history
+    // Retrieved 2026-04-08, License - CC BY-SA 4.0
+
+    fetch('resources/404-quotes.txt')
+        .then((res) => res.text())
+        .then((text) => {
+            let choice = sample(text.split("\n").slice(0, -1)).split("<META>");
+            document.getElementById("404-quote").innerText = choice[0];
+            document.getElementById("404-title").innerText = choice[1];
+            document.getElementById("404-author").innerText = choice[2];
+        })
+        .catch((e) => console.error(e));
+
+}
+
 // ----- On load code -----
 
 // Assign according icons to listed documents
@@ -85,7 +111,7 @@ Array.from(document.getElementsByTagName("li")).forEach((e) => {
 });
 
 // Link navbar to pages
-Array.from(document.getElementsByClassName("droplabel")).forEach((e) => {
+Array.from(document.getElementsByClassName("pagelabel")).forEach((e) => {
     e.addEventListener("click", (event) => {
         event.preventDefault();
         toggle_page(e.id);
@@ -100,6 +126,8 @@ Array.from(document.getElementsByClassName("dinkus")).forEach((e) => {
 // Initial page grab and toggle
 let urlParams = new URLSearchParams(window.location.search);
 let page_idx = urlParams.get('page') || 1; // Default to page 1
+
+if (typeof(page_idx) !== 'string') page_idx = 1;
 
 toggle_page(page_idx);
 h2_dropdowns();
