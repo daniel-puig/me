@@ -183,7 +183,7 @@ h2 {
 }
 
 .postprint {
-    color: gray;
+    color: var(--red);
     position: relative;
     bottom: 10px;
 }

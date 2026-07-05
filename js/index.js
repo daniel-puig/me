@@ -127,7 +127,7 @@ Array.from(document.getElementsByClassName("dinkus")).forEach((e) => {
 let urlParams = new URLSearchParams(window.location.search);
 let page_idx = urlParams.get('page') || 1; // Default to page 1
 
-if (typeof(page_idx) !== 'string') page_idx = 1;
+if (typeof(page_idx) !== 'string' || isNaN(parseInt(page_idx))) page_idx = 1;
 
 toggle_page(page_idx);
 h2_dropdowns();
