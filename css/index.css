@@ -1,5 +1,6 @@
 :root {
     --red: #ed3647;
+    --geo: #467886;
 }
 
 body {
@@ -41,6 +42,10 @@ h1 {
 h2 {
     margin-bottom: 0px;
     padding-bottom: 0px;
+}
+
+h3 {
+    color: var(--geo);
 }
 
 .logo-img {
@@ -134,7 +139,7 @@ h2 {
 
 .geo-label {
     text-decoration: underline;
-    color: #467886;
+    color: var(--geo);
 }
 
 .iaq-header {
