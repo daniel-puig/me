@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: JetBrains Mono, Consolas, Arial;
+    /* font-family: JetBrains Mono, Consolas, Arial; */
     width: 100%;
     padding-top: 10px;
     transition: background-color 0.5s ease;
